@@ -57,15 +57,10 @@ h2{
     h2{color: $gBrightColor;
     }
   }
-
-// li{
-//   list-style: none;
-//   color: $gLightColor; }
-//     @media only screen and (min-width: 600px) {
-//     li { color: $gBrightColor;
-//       background-color: $gLightColor; }
-//     }
-
+  @media #{$large} {
+    h2{color: $gDarkColor;
+    }
+  }
 
 .block_family{
   max-width: 350px;
@@ -85,5 +80,10 @@ h2{
   @media #{$medium} {
     .block_family li{
       background-color: $gLightColor;
+    }
+  }
+  @media #{$large} {
+    .block_family li{
+      background-color: $gBrightColor;
     }
   }
