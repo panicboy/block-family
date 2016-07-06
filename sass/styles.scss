@@ -14,16 +14,27 @@ $medWidth: 500px;
 $lgWidth: 800px;
 
 // Media Query Ranges
-@media #{$medium} {
-}
-@media #{$large} {
-}
+// @media #{$medium} {
+// }
+// @media #{$large} {
+// }
 // Mixins
 
-// Styles
-title{
-  margin: auto;
+@mixin med {
+  @media #{$medium}  {
+    & { @content;
+    }
+  }
 }
+
+@mixin lg {
+  @media #{$large} {
+    & { @content;
+    }
+  }
+}
+
+// Styles
 body{
   background-color: orange;
   text-align: center; }
@@ -57,18 +68,14 @@ h2{
     h2{color: $gBrightColor;
     }
   }
-  @media #{$large} {
-    h2{color: $gDarkColor;
-    }
-  }
 
 .block_family{
   max-width: 350px;
   margin:auto;
-  @media #{$medium} {
+  @include med{
     max-width: $medWidth;
   }
-  @media #{$large} {
+  @include lg {
     max-width: $lgWidth;
   }
 }
@@ -80,10 +87,5 @@ h2{
   @media #{$medium} {
     .block_family li{
       background-color: $gLightColor;
-    }
-  }
-  @media #{$large} {
-    .block_family li{
-      background-color: $gBrightColor;
     }
   }
