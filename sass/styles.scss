@@ -5,9 +5,13 @@
 // Variables
 $medium: "only screen and (min-width: 600px)";
 $large: "only screen and (min-width: 900px)";
-$brightColor: #FFA500;
-$darkColor: #222222;
-$lightColor: #F2F2F2;
+$gBrightColor: #FFA500;
+$gDarkColor: #222;
+$gLightColor: #F2F2F2;
+$gPad: 20px;
+$gBigFontSize: 3.5em;
+$medWidth: 500px;
+$lgWidth: 800px;
 
 // Media Query Ranges
 @media #{$medium} {
@@ -17,32 +21,69 @@ $lightColor: #F2F2F2;
 // Mixins
 
 // Styles
+title{
+  margin: auto;
+}
 body{
   background-color: orange;
-  text-align: center;
-  color: #EEE;
-}
+  text-align: center; }
+  @media #{$large} {
+    body{background-color: $gDarkColor;
+    }
+  }
 
 h1, h2, h3, h4{
   font-family: "Helvetica Neue", "Helvetica", sans-serif;
 }
 
 h1{
-  padding: 20px;
-}
+  font-size: 3em;
+  font-size: $gBigFontSize;
+  padding: $gPad;
+  color: $gDarkColor; }
+  @media #{$medium} {
+    h1{color: $gLightColor;
+    }
+  }
+  @media #{$large} {
+    h1{color: $gBrightColor;
+    }
+  }
 
 h2{
+  font-size: $gBigFontSize*.65;
+  color: $gLightColor; }
+  @media #{$medium} {
+    h2{color: $gBrightColor;
+    }
+  }
 
-}
+// li{
+//   list-style: none;
+//   color: $gLightColor; }
+//     @media only screen and (min-width: 600px) {
+//     li { color: $gBrightColor;
+//       background-color: $gLightColor; }
+//     }
 
 
 .block_family{
-  max-width:350px;
+  max-width: 350px;
   margin:auto;
+  @media #{$medium} {
+    max-width: $medWidth;
+  }
+  @media #{$large} {
+    max-width: $lgWidth;
+  }
 }
 
 .block_family li{
-  background-color: #222;
+  background-color: $gDarkColor;
   margin-bottom: 20px;
-  padding: 20px;
-}
+  padding: 20px; }
+  @media #{$medium} {
+    .block_family li{
+      background-color: $gLightColor;
+    }
+  }
